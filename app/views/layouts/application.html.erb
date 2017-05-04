@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>Project</title>
+	<%= csrf_meta_tags %>
+
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+	<body>
+	<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
+		<div class="container">
+		  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<div class="navbar-nav">
+			  <%= link_to root_path, class: 'nav-item nav-link active_class(root_path)' do %>
+				Home
+				<span class="sr-only">(current)</span>
+			  <% end %>
+			  <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle active_class(#)" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Products
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+				  <% @categoryNav.each do |category| %>
+					<%= link_to category.name, category_path(category.id), class: 'dropdown-item' %>
+					<hr>
+			  <% end %> 
+				</div>
+			  </li> 
+			  <%= link_to 'Blog', articles_path, class: 'nav-item nav-link active_class(articles_path)' %>
+			  <%= link_to 'Customer Care', '#', class: 'nav-item nav-link' %>
+			  <%= link_to 'Contact', '#', class: 'nav-item nav-link' %>
+			</div>
+		  </div>
+		</div>  
+	</nav><br><br>
+
+	<div class="container">
+		<% flash.each do |key, value| %>
+		  <div class="<%= flash_class(key) %>" role="alert">
+				<%= value %>
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>  
+		  </div>
+		<% end %>
+		<br><br>
+		 <!--<p class="notice"><%#= notice %></p>
+	 <p class="alert"><%#= alert %></p>-->
+		<%= yield %>
+  </div>  
+
+  <br>
+  <footer>
+  	<br><p>&copy; John Uzoma</p>
+  </footer>
+  <script src="https://use.fontawesome.com/bdb0c97264.js"></script>  
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<h2><%= @category.name.capitalize %></h2>
+<hr>
+<%# if current_user && current_user.admin? %>
+	<h2><small class="pull-right"><%= link_to 'Edit', edit_category_path %></small></h2>
+<%# end %>
+
+<% if @products.exists? %>
+	<% @products.each do |p| %>
+		<div class="img">
+			<a href="<%= p.picture() %>" data-toggle="lightbox" data-gallery="example-gallery" data-title="<%= p.title %>">
+				<%= image_tag(p.picture.url (:display), size: '200x200') %>
+			</a>
+			<div class="desc">
+				<%# if current_user %>
+					<a href="" data-toggle="tooltip" data-placement="right" title="Add to cart" class="pull-right"><i class="fa fa-shopping-cart" aria-hidden="true" ></i></a>
+				<%# else %>
+					<!--<a href="" title="Sign in first!"><i class="disabled fa fa-shopping-cart" aria-hidden="true" ></i></a>-->
+				<%# end %>		
+			</div>
+		</div>
+	<% end %>
+<% else %>
+	<p>There are no products in this category</p> 	
+<% end %>
+
+<%# if current_user && current_user.admin? %>
+	<%= link_to "Add product", product_upload_path, class: "btn btn-primary but" %>
+<%# end %>	

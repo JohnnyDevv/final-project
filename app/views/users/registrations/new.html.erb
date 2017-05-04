@@ -1,0 +1,49 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <center>
+    <div class="card">
+      <h2 class="card-header card-info">Sign up</h2>
+      <div class="card-block">
+        <center>
+          <div class="field form-group">
+            <%= f.text_field :fname, autofocus: true, class: "form-control col-5", placeholder: 'First name' %>
+          </div>
+        </center>
+
+        <center>
+          <div class="field form-group">
+            <%= f.text_field :lname, autofocus: true, class: "form-control col-5", placeholder: 'Last name' %>
+          </div>
+        </center>
+
+        <center>
+          <div class="field form-group">
+            <%= f.email_field :email, autofocus: true, class: "form-control col-5", placeholder: 'Email' %>
+          </div>
+        </center>  
+
+        <center>
+          <div class="field form-group">
+            <%= f.password_field :password, autocomplete: "off", class: "form-control col-5", placeholder: 'Password' %>
+            <% if @minimum_password_length %>
+              <small class="form-text text-muted"><em>(<%= @minimum_password_length %> characters minimum)</em></small>
+            <% end %>
+          </div>
+        </center>  
+
+        <center>
+          <div class="field form-group">
+            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control col-5", placeholder: 'Confirm' %>
+          </div>
+        </center>  
+
+        <div class="actions">
+          <%= f.submit "Sign up", class: "btn btn-primary btn-lg" %>
+        </div>
+      </div>
+    </div>  
+  </center>    
+<% end %>
+
+<%= render "users/shared/links" %>

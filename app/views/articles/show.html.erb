@@ -1,0 +1,5 @@
+<h2><small><%= link_to 'Edit Thread', edit_article_path, class: 'pull-right' %></small></h2><br>
+<h2><small><%= link_to 'Delete Thread', article_path(@article), method: :delete, data: { confirm: 'Are you sure?' }, class: 'pull-right' %></small></h2>
+<center><h4><%= @article.title.upcase %></h4><br>
+<%= image_tag(@article.picture.url, size: "600x350", class: 'img-rounded') if @article.present? %></center><br>
+<p><%= @article.body %></p>

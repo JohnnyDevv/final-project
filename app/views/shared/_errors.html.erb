@@ -1,0 +1,15 @@
+<% if obj.errors.any? %>
+  <div class="row">
+    <div class="col-xs-8">
+      <div class="alert alert-danger fade in">
+        <a href="#" class="close" data-dismiss="alert" arial-label="close">&times;</a>
+        <h3><%= pluralize(obj.errors.count,"error") %> prohibited this <%= controller_name %> from being saved:</h3>
+        <ul>
+          <% obj.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>    
+<% end %>  
