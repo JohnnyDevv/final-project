@@ -11,10 +11,9 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery-ui/effect-blind
-//= require bootstrap
-//= require bootstrap/modal
 //= require jquery_ujs
+//= require jquery-ui
+//= require bootstrap
 //= require lightbox-bootstrap
 //= require custom
 //= require turbolinks

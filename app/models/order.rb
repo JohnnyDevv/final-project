@@ -5,7 +5,7 @@ class Order < ApplicationRecord
 		"Purchase order" => 2
 	}
 
-	attr_accessor :card_no, :card_cvv, :expiry_date
+	attr_accessor :card_no, :card_cvv, :expiry_year, :expiry_month
 	#belongs_to :user
 
 	has_many :line_items, dependent: :destroy

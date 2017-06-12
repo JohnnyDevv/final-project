@@ -35,6 +35,12 @@
             <%= f.text_field :card_cvv, autofocus: true, class: "form-control col-6", placeholder: 'CVV' %>
           </div>
 
+          <div class="field form-group">
+            <%= f.label :expiry_date %>
+            <%= f.select_month :expiry_month, :use_month_numbers => true %>
+            <%= f.select_year :expiry_year, :start_year => Date.today.year, :end_year => (Date.today.year+10) %>
+          </div>
+
           <div class="field">
             <%= f.label :expiry_date %>
             <%= f.date_select :expiry_date, :discard_day => true, :use_month_numbers => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :order => [:month, :year] %>

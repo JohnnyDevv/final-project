@@ -31,7 +31,16 @@ class OrdersController < ApplicationController
     #puts params[:credit_card].nil?
     @order = Order.new(order_params)
     @order.add_line_items_from_cart(@cart)
-    #credit_card = ActiveMerchant::Billing::CreditCard.new(params[:order][:card_cvv])
+    credit_card = ActiveMerchant::Billing::CreditCard.new(
+                    :first_name         => params[:order][:fname],
+                    :last_name          => params[:order][:lname],
+                    :address            => params[:order][:address],
+                    :email              => params[:order][:email],
+                    :number             => params[:order][:card_no],
+                    :month              => params[:order][:expiry_month],
+                    :year               => params[:order][:expiry_year],
+                    :pay_type           => params[:order][:pay_type],
+                    :verification_value => params[:order][:card_cvv])
 
     respond_to do |format|
       if @order.save
