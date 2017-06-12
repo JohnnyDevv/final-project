@@ -200,6 +200,7 @@ DEPENDENCIES
   lightbox-bootstrap-rails (= 5.1.0.1)
   mailgunner
   mini_magick
+  minitest
   pg
   programr
   puma (~> 3.0)

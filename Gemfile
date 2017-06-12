@@ -34,6 +34,7 @@ gem 'certified'
 gem 'mailgunner'
 gem 'activemerchant'
 gem 'programr'
+gem 'minitest'
 
 # Use jquery as the JavaScript library
 
