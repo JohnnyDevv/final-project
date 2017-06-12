@@ -11,8 +11,29 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui/effect-blind
 //= require bootstrap
+//= require bootstrap/modal
 //= require jquery_ujs
 //= require lightbox-bootstrap
+//= require custom
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+
+  $('#ask').on('click', function(event) {
+    $.ajax({
+      url: '/ask_bot',
+      type: 'json',
+      method: 'get',
+      data: { query: $('#query').val() },
+      success: function(data) {
+        $('.bot-response').removeClass('hide');
+        $('#bot-response').html(data['response']);
+        $('#query').val('');
+      }
+    });
+  });
+});
+

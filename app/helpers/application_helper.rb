@@ -1,6 +1,10 @@
 module ApplicationHelper
-  def active_class(link_path)
-    current_page?(link_path) ? 'active' : ""
+  #def active_class(link_path)
+   # current_page?(link_path) ? 'active' : ""
+  #end
+
+  def active_class(controller_name, action_name)    
+    "active" if current_page?(controller: controller_name, action: action_name)
   end
 
   def flash_class(level)
@@ -11,4 +15,11 @@ module ApplicationHelper
       when 'alert' then "alert alert-warning alert-dismissible fade show"
     end
 	end
+
+  def hidden_div_if(condition, attributes = {}, &block)
+    if condition
+      attributes["style"] = "display: none"
+    end
+    content_tag("div", attributes, &block)
+  end
 end

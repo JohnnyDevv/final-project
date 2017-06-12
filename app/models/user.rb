@@ -6,7 +6,12 @@ class User < ApplicationRecord
   has_many :comments
   has_many :articles
 
-  def admin? 
-  	self.role == 'admin' 
+  #def admin? 
+  #	self.admin == true 
+  #end
+
+  def full_name
+    return "#{fname} #{lname}".strip if (fname || lname)
+    #"Anonymous"
   end
 end

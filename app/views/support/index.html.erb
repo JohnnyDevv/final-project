@@ -1,0 +1,61 @@
+<h1>Your trusted chat bot</h1>
+<button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#myModal">
+  FAQs
+</button>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Frequently asked questions</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>What payment methods do you accept?</li>
+          <li>When will my credit card be charged?</li>
+          <li>Do I have to pay sales tax?</li>
+          <li>How do I start a new order?</li>
+          <li>How do I get my tracking number?</li>
+          <li>What shipment options do I have?</li>
+          <li>What if I do not receive my order?</li>
+          <li>What is your store's return policy?</li>
+          <li>How do I cancel my order?</li>
+          <li>Can I change my shipping address?</li> 
+        </ul>        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row home-row">
+  <%= image_tag 'aco_bot.jpg', size: '300x300', class: "rounded img-fluid" %>
+</div>
+
+<div class="alert alert-info">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Info!</strong> Type something on the text input and hit the <strong>GO</strong> button to get a response.
+</div>
+
+<div class="bs-callout bs-callout-info chiquibot-response hide" id="callout-alerts-no-default">
+  <h4>Bot says:</h4>
+  <p id="bot-response"> </p>
+</div>
+
+<div class="row home-row">
+  <div class="col-lg-12">
+    <div class="input-group">
+      <input id="query" type="text" class="form-control" placeholder="Say something to the bot...">
+      <span class="input-group-btn">
+        <button id="ask" class="btn btn-default" type="button">GO</button>
+      </span>
+    </div>
+  </div>
+</div>
+
+<p>Help-lines: +2347565776565, +4560987654670, +1450978563423</p>

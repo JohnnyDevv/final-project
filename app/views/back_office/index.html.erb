@@ -1,0 +1,57 @@
+<h3>Admin Desk</h3>
+<hr>
+
+<div class="chart-container" style="position: relative; margin: auto;">
+  <canvas id="barChart"></canvas>
+</div>
+
+<br><br>
+<h6>Anomaly</h6>
+<div class="row">
+	<div class="card card-outline-danger text-center col-6">
+	  <div class="card-block">
+	  	<blockquote class="card-blockquote">
+		  	<h3 class="card-title">Problem</h3>
+	      <p>We have detected 3 instances of this product selling below it's cost price.</p>
+	 			<strong>Emotico</strong>
+	 			<p>$6.00</p>
+	      <p>Customers are currently able to apply multiple promotions to this product. Where multiple promotions have been applied, the selling price has been below its cost.</p>
+	      <%#= image_tag 'bag3.jpg', size: '50x50', class: "img-fluid" %>
+	    </blockquote> 
+	  </div>
+	</div>
+
+	<div class="col-1"></div>
+
+	<div class="card card-outline-primary col-5">
+	  <div class="card-block">
+	    <h3 class="card-title">Recommendation</h3>
+	    <p class="card-text">You should consider disabling one or more promotions against this product.</p><br>
+	  	<div class="row">
+	  		<h5>New Customer Promotion</h5>
+	  		<p>This promotion reduces price by $2.00</p>
+	  		<div class="col-1"></div>
+	  		<button class="btn btn-primary but">Deactivate</button>
+	  	</div><br>
+	  	<div class="row">
+	  		<h5>Seasonal Promotion</h5>
+	  		<p>This promotion reduces price by $5.00</p>
+	  		<div class="col-1"></div>
+	  		<button class="btn btn-primary but">Deactivate</button>
+	  	</div>
+	  </div>
+	</div>
+</div>
+
+<br>
+<div class="row">
+	<div class="chart-container" style="position: relative; margin: auto;">
+	  <canvas id="barChart2"></canvas>
+	</div>
+
+	<div class="col-1"></div>
+
+	<div class="chart-container" style="position: relative; margin: auto;">
+	  <canvas id="lineChart"></canvas>
+	</div>
+</div>

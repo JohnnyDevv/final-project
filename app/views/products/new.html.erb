@@ -1,47 +1,31 @@
 <h2>Upload Item</h2>
 
-<%#= render 'shared/errors', obj: @product %>
+<%= render 'shared/errors', obj: @product %>
 
 <div class="row">
 	<div class="col-xs-12">
 		<%= form_for @product, :html => {class: "form-horizontal", role: "form"} do |f| %>
-			<% if @product.errors.any? %>
-				<div id="error_explanation">
-					<h2>
-						<%= pluralize(@product.errors.count, 'error') %> prohibited this product from being saved:
-					</h2>
-					<ul>
-						<%= @product.errors.full_messages.each do |msg| %>
-							<li><%= msg %></li>
-						<% end %>	
-					</ul>
-				</div>
-			<% end %>
 			
 			<div class="form-group">
-				<div class="col-sm-6">
-					<%= f.text_field :title, class: 'form-control', placeholder: 'Title', autofocus: true %>
-				</div>	
+				<%= f.text_field :title, class: 'form-control col-6', placeholder: 'Title', autofocus: true %>
 			</div>	
 
 			<div class="form-group">
-				<div class="col-sm-6">
-					<%= f.select :category_id, Category.all.collect {|x| [x.name, x.id]}, {:include_blank => 'Category'}, class: 'form-control' %>
-				</div>
+				<%= f.select :category_id, Category.all.collect {|x| [x.name, x.id]}, {:include_blank => 'Category'}, class: 'form-control col-6' %>
 			</div>	
 
 			<div class="form-group">
-				<div class="col-sm-6">
-					<%= f.text_area :description, class: 'form-control', placeholder: 'Description', autofocus: true %>
-				</div>
+				<%= f.text_area :description, class: 'form-control col-6', placeholder: 'Description', autofocus: true %>
 			</div>	
 
 			<div class="form-group">
-				<div class="col-sm-4">
-					<%= f.label :product_image %>
-					<%= f.hidden_field :picture_cache %>
-					<%= f.file_field :picture %>
-				</div>
+				<%= f.text_field :price, class: 'form-control col-6', placeholder: 'Price', autofocus: true %>
+			</div>	
+
+			<div class="form-group">
+				<%= f.label :product_image %>
+				<%#= f.hidden_field :picture_cache %>
+				<%= f.file_field :picture %> 
 			</div>
 			
 			<%= f.submit "Upload photo", class: 'btn btn-success but' %>

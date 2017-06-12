@@ -1,13 +1,48 @@
 <center>
-	<div class="jumbotron jumbotron-fluid">
+	<div class="jumbotron jumbotron-fluid img-fluid">
 	  <div class="container-fluid">
 	    <h1 class="display-3">Leno Signature</h1>
 	    <p class="lead"><i>Your trusted swaggy items provider.</i></p>
-	    <p class="lead">
-	      <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-primary btn-lg" %>
-	    </p>
+	    <% if !current_user %>
+		    <p class="lead">
+		      <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-primary btn-lg" %>
+		    </p>
+	    <% end %>
 	  </div>
 	</div>
 </center>
 
-<%= link_to 'New category', new_category_path %>
+<p class="myfont" style="border-bottom: 5px solid gray">New Products</p>
+<center>
+<% if @all_products.present? %>
+	<% @all_products.each do |p| %>
+		<a href="<%= p.picture() %>" data-toggle="lightbox" data-gallery="example-gallery" data-title="<%= p.title %>">
+			<%= image_tag(p.picture.url, size: '200x200', class: 'rounded') %>
+		</a>&nbsp;&nbsp;	
+	<% end %>
+<% end %>
+</center>
+
+<br><br><p class="myfont" style="border-bottom: 5px solid gray">What's New?</p>
+<center>
+<% if @all_articles.present? %>
+	<% @all_articles.each do |a| %>
+		<div class="card-group d-inline-block">
+		  <div class="card" style="width: 200px">
+		    <%= image_tag(a.picture.url, size: '200x200', class: "card-img-top", alt: "Card image cap")  %>
+		    <div class="card-block">
+		      <h4 class="card-title"><%= a.title %></h4>
+		      <p class="card-text"><%= a.body.truncate_words(7, omission: '... (continued)') %></p>
+		    </div>
+		    <div class="card-footer">
+		      <small class="text-muted">Created <%= time_ago_in_words(a.created_at) %> ago</small>
+		    </div>
+		  </div>
+		</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<% end %>
+<% end %>	
+</center>
+
+<% if current_user && current_user.admin? %>
+	<%= link_to 'New category', new_category_path %>
+<% end %>

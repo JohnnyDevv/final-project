@@ -25,15 +25,19 @@ gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'devise'
 gem 'mini_magick'
 gem 'carrierwave', '~> 1.0'
-gem 'cloudinary'
+#gem 'cloudinary'
+gem "font-awesome-rails"
 #gem 'fog'
 gem 'lightbox-bootstrap-rails', '5.1.0.1'
 #gem 'fancybox2-rails'
 gem 'certified'
-#gem 'rest-client'
 gem 'mailgunner'
+gem 'activemerchant'
+gem 'programr'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -48,12 +52,13 @@ gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'sqlite3'
+  #gem 'web-console', '>= 3.3.0'
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
+  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code. 
   gem 'web-console', '>= 3.3.0'
 end
 

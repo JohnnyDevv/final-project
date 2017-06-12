@@ -1,20 +1,20 @@
 <h2>Be in the know!</h2>
 <hr>
 
-<%# if current_user.admin? %>
+<% if current_user && current_user.admin? %>
 	<h2><small><%= link_to 'New Thread', new_article_path, class: 'pull-right' %></small></h2>
-<%# end %>
+<% end %>
 
 <% if @articles.exists? %>
 	<% @articles.each do |a| %>
 		<center>
 			<div class="card text-center" style="width: 20rem;">
 				<%= link_to article_path(a), class: '' do %>
-					<%= image_tag a.picture.url, class: 'img-fluid card-img-top' %>
+					<%= image_tag(a.picture.url, size: '200x200', class: 'img-fluid card-img-top') %>
 					<div class="card-block myfont">
 						<h4 class="card-title"><%= a.title %></h4>
 						<p class="card-text"><%= a.body.truncate_words(7, omission: '... (continued)') %></p>
-						<p>Created <%= time_ago_in_words(a.created_at) %> ago</p>
+						<p>Created <%= time_ago_in_words(a.created_at) %> ago</p> 
 					</div>
 				<% end %>	
 			</div>

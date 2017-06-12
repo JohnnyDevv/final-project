@@ -1,13 +1,16 @@
 class CategoriesController < ApplicationController
+	include CurrentCart
+	before_action  :require_admin, except: [:show]
+	before_action :set_cart
 	def create
 		@category = Category.new(category_params)
 	   
-	   	if @category.save
-	   	  	flash[:notice] = '#{@category.name} category got created'
-	   	  	redirect_to root_path
-	   	else
-	   		render 'new'
-	   	end			   		
+   	if @category.save
+   	  	flash[:notice] = '#{@category.name} category got created'
+   	  	redirect_to root_url
+   	else
+   		render 'new'
+   	end			   		
 	end	
 
 	def new
@@ -24,7 +27,7 @@ class CategoriesController < ApplicationController
 
 		if @category.update(category_params)
 			flash[:notice] = '#{@category.name} category updated'
-			redirect_to root_path
+			redirect_to root_url
 		else
 			render 'edit'
 		end		
@@ -32,14 +35,15 @@ class CategoriesController < ApplicationController
 
 	def show
 		@category = Category.find(params[:id])
-		@products = @category.products
+		@products = @category.products.order('created_at DESC')
+		#@product = @category.product
 	end	
 
 	def destroy
 		@category = Category.find(params[:id])
 		@category.destroy
 		@category.id = nil
-		redirect_to root_path
+		redirect_to root_url
 	end
 
 	private

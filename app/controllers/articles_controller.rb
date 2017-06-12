@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
-	 def index
-  	@articles = Article.all
+	before_action :require_admin, except: [:index, :show] 
+
+  def index
+  	@articles = Article.all.order('created_at DESC')
   	#@comments = @articles.comments
   end
 

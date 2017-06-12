@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+  <aiml version="1.0">
+
+    <category>
+      <pattern>Hello *</pattern>
+      <template>
+        Hey, how can I help you?
+      </template>
+    </category>
+
+    <category>
+      <pattern>*bye</pattern>
+      <template>
+        Always here for you!
+      </template>
+    </category>
+
+    <category>
+      <pattern>What payment methods do you accept?</pattern>
+      <template>
+        We accept Visa, MasterCard and American Express.
+      </template>
+    </category>
+
+    <category>
+      <pattern>When will my credit card be charged?</pattern>
+      <template>
+        Your credit card will be charged the day after your purchase has been placed.
+      </template>
+    </category>
+
+    <category>
+      <pattern>How do I cancel my order?</pattern>
+      <template>
+        Only purchases that have been pre-ordered may be subject to cancellation. 
+        If you paid by credit card, and need to cancel your order please contact the help-lines below. Please remember to include your order number for faster service.
+      </template>
+    </category>
+
+    <category>
+      <pattern>When will my credit card be charged?</pattern>
+      <template>
+        Your credit card will be charged the day after your purchase has been placed.
+      </template>
+    </category>
+
+    <category>
+      <pattern>What is your store's return policy?</pattern>
+      <template>
+        LenoSignature does not accept returns for digital products.
+      </template>
+    </category>
+
+    <category>
+      <pattern>What if I do not receive my order?</pattern>
+      <template>
+        Please check your shipping confirmation email for your tracking number. You can visit www.ups.com to track your package 24 hours a day.
+      </template>
+    </category>
+
+    <category>
+      <pattern>How do I get my tracking number?</pattern>
+      <template>
+        It will be sent to your mail.
+      </template>
+    </category>
+
+     <category>
+      <pattern>Do I have to pay sales tax?</pattern>
+      <template>
+        LenoSignature charges applicable sales tax based on the consumer's billing address and the location of our webstore. For example, a US resident purchasing from our site will be charged the applicable state and local taxes.
+      </template>
+    </category>
+
+    <category>
+      <pattern>Can I change my shipping address?</pattern>
+      <template>
+        You cannot change your shipping address after your order has been submitted. Edits to the shipping address could impact sales tax calculations or shipping territories restrictions.
+      </template>
+    </category>
+
+    <category>
+      <pattern>CANTA *</pattern>
+      <template>
+        <random>
+          <li>¡Sieteee caballo que vienennn de Bonanzaaarrlll!</li>
+          <li>¡Lo maté en agosto, la calóh apretabaaaaaa!</li>
+        </random>
+      </template>
+    </category>
+
+  </aiml>

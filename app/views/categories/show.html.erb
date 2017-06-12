@@ -1,28 +1,73 @@
 <h2><%= @category.name.capitalize %></h2>
 <hr>
-<%# if current_user && current_user.admin? %>
+<% if current_user && current_user.admin? %>
 	<h2><small class="pull-right"><%= link_to 'Edit', edit_category_path %></small></h2>
-<%# end %>
+<% end %>
 
 <% if @products.exists? %>
-	<% @products.each do |p| %>
-		<div class="img">
-			<a href="<%= p.picture() %>" data-toggle="lightbox" data-gallery="example-gallery" data-title="<%= p.title %>">
-				<%= image_tag(p.picture.url (:display), size: '200x200') %>
-			</a>
-			<div class="desc">
-				<%# if current_user %>
-					<a href="" data-toggle="tooltip" data-placement="right" title="Add to cart" class="pull-right"><i class="fa fa-shopping-cart" aria-hidden="true" ></i></a>
-				<%# else %>
-					<!--<a href="" title="Sign in first!"><i class="disabled fa fa-shopping-cart" aria-hidden="true" ></i></a>-->
-				<%# end %>		
-			</div>
+	<% if current_user %>
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+		  Automate your conditions
+		</button>
+
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">What do you want to optimize for?</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		      	<ul>
+		      		<li><%= link_to 'Popularity', '#' %></li>
+		      		<li><%= link_to 'Inventory turns', '#' %></li>
+		      		<li><%= link_to 'Seasonality', '#' %></li>
+		      		<li><%= link_to 'Profitability', '#' %></li>
+		      	</ul>		     
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
 		</div>
 	<% end %>
+	
+	<% cache @products do %>
+		<% @products.each do |p| %>
+			<% cache p do %>
+				<div class="img">
+					<a href="<%= p.picture() %>" data-toggle="lightbox" data-gallery="example-gallery" data-title="<%= p.title %>">
+						<%= image_tag(p.picture.url, size: '200x200') %>
+					</a>
+					<div class="desc">
+						<% if current_user %>
+							<span class="price"><%= number_to_currency(p.price) %></span>
+							<%= link_to line_items_path(product_id: p), method: :post, remote: true, class: "pull-right" do %> 	
+								<i class="fa fa-shopping-cart" aria-hidden="true" ></i>
+							<% end %>
+						<% else %>
+							<a href="" title="Sign in first!"><i class="disabled fa fa-shopping-cart" aria-hidden="true" ></i></a>
+						<% end %>		
+					</div>
+				</div>
+			<% end %>	
+		<% end %>
+	<% end %>	
 <% else %>
 	<p>There are no products in this category</p> 	
 <% end %>
 
-<%# if current_user && current_user.admin? %>
-	<%= link_to "Add product", product_upload_path, class: "btn btn-primary but" %>
-<%# end %>	
+<div id="cart">
+	<% if @cart %>
+		<%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+			<%= render @cart %>
+		<% end %>
+	<% end %>
+</div>
+
+<% if current_user && current_user.admin? %>
+	<%= link_to "Add product", new_product_path, class: "btn btn-primary but" %>
+<% end %>	
