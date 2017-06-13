@@ -14,12 +14,11 @@ class ApplicationController < ActionController::Base
   end
 
   def getProducts
-    @all_products = Product.order(created_at: :desc).last(4)
-    #@productew = Product.find(params[:id])
+    @all_products = Product.order(created_at: :asc).last(4)
   end  
 
   def getArticles
-    @all_articles = Article.order(created_at: :desc).last(3)
+    @all_articles = Article.order(created_at: :asc).last(3)
   end
 
   def require_admin

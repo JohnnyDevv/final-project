@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get 'ask_bot', to: 'application#ask_bot'
   get 'bot', to: 'support#index'
   get 'back_office', to: 'back_office#index'
-
+  
   root 'welcome#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

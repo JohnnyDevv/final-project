@@ -12,8 +12,9 @@
 	</div>
 </center>
 
-<p class="myfont" style="border-bottom: 5px solid gray">New Products</p>
-<center>
+<p class="myfont"><%= link_to 'New Products', category_path(Category.first) %></p>
+<hr>
+<div class="text-center">
 <% if @all_products.present? %>
 	<% @all_products.each do |p| %>
 		<a href="<%= p.picture() %>" data-toggle="lightbox" data-gallery="example-gallery" data-title="<%= p.title %>">
@@ -21,10 +22,11 @@
 		</a>&nbsp;&nbsp;	
 	<% end %>
 <% end %>
-</center>
+</div>
 
-<br><br><p class="myfont" style="border-bottom: 5px solid gray">What's New?</p>
-<center>
+<br><br><p class="myfont"><%= link_to "What's New?", articles_path %></p>
+<hr>
+<div class="text-center">
 <% if @all_articles.present? %>
 	<% @all_articles.each do |a| %>
 		<div class="card-group d-inline-block">
@@ -41,7 +43,7 @@
 		</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<% end %>
 <% end %>	
-</center>
+</div>
 
 <% if current_user && current_user.admin? %>
 	<%= link_to 'New category', new_category_path %>

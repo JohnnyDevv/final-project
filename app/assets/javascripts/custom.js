@@ -5,10 +5,10 @@ $(function () {
   var myChart = new Chart(ctx, {
       type: 'bar',
       data: {
-          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          labels: ['Mon','Tue','Wed','Thur','Fri','Sat','Sun'],
           datasets: [{
-              label: '# of Votes',
-              data: [12, 19, 3, 5, 2, 3],
+              label: 'Number of orders per day for 7 days',
+              data: [12, 13, 3, 5, 2, 18, 15],
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',
                   'rgba(54, 162, 235, 0.2)',
@@ -46,10 +46,10 @@ $(function () {
   var myChart2 = new Chart(ctx2, {
     type: 'horizontalBar',
     data: {
-          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          labels: ["Landing page", "View product", "Add to cart", "Checkout", "Help"],
           datasets: [{
-              label: '# of Votes',
-              data: [12, 19, 3, 5, 2, 3],
+              label: 'Daily struggle score per page',
+              data: [60, 95, 15, 25, 10],
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',
                   'rgba(54, 162, 235, 0.2)',
@@ -87,15 +87,15 @@ $(function () {
   var myChart3 = new Chart(ctx3, {
     type: 'line',
     data: {
-      labels: [1500,1600,1700,1750,1800,1850,1900,1950,1999,2050],
+      labels: ['Mon','Tue','Wed','Thur','Fri','Sat','Sun'],
       datasets: [{ 
-          data: [86,114,106,106,107,111,133,221,783,2478],
-          label: "Africa",
+          data: [8.6,11.4,10.6,10.6,10.7,11.1,13.3],
+          label: "Previous Week",
           borderColor: "#3e95cd",
           fill: false
         }, { 
-          data: [282,350,411,502,635,809,947,1402,3700,5267],
-          label: "Asia",
+          data: [28.2,35,41.1,50.2,63.5,80.9,94.7],
+          label: "Current Week",
           borderColor: "#8e5ea2",
           fill: false
         }]
@@ -103,8 +103,91 @@ $(function () {
     options: {
       title: {
         display: true,
-        text: 'World population per region (in millions)'
+        text: 'Struggle score per day (in %)'
       }
     }
   });   
+
+  var ctx4 = document.getElementById("bubbleChart").getContext('2d');
+  ctx4.canvas.height = 200;
+  ctx4.canvas.width = 500;
+  var myChart4 = new Chart(ctx4, {
+    type: 'bubble',
+    data: {
+      labels: "Africa",
+      datasets: [
+        {
+          label: ["Company"],
+          backgroundColor: "blue",
+          borderColor: "black",
+          data: [{
+            x: 0,
+            y: 0,
+            r: 6
+          }]
+        }, {
+          label: ["Ikeja"],
+          backgroundColor: "rgba(60,186,159,0.2)",
+          borderColor: "rgba(60,186,159,1)",
+          data: [{
+            x: 1,
+            y: 2,
+            r: 6
+          }]
+        }, {
+          label: ["Abeokuta"],
+          backgroundColor: "rgba(193,46,12,0.2)",
+          borderColor: "rgba(193,46,12,1)",
+          data: [{
+            x: 2,
+            y: 6,
+            r: 6
+          }]
+        }, {
+          label: ["Sango"],
+          backgroundColor: "rgba(0,0,0,0.2)",
+          borderColor: "#000",
+          data: [{
+            x: 3,
+            y: 4,
+            r: 6
+          }]
+        }, {
+          label: ["Ota"],
+          backgroundColor: "rgba(255,221,50,0.2)",
+          borderColor: "rgba(255,221,50,1)",
+          data: [{
+            x: 4,
+            y: 5,
+            r: 6
+          }]
+        }
+      ]    
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Order locations'
+      }, scales: {
+        yAxes: [{ 
+          scaleLabel: {
+            display: true,
+            labelString: "Number of orders"
+          }, 
+          ticks: {
+            beginAtZero: true
+          }
+        }],
+        xAxes: [{ 
+          ticks: {
+            beginAtZero: true
+          },
+          scaleLabel: {
+            display: true,
+            labelString: "Number of locations"
+          }
+        }]
+      }
+    }
+  });
 });

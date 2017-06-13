@@ -1,7 +1,4 @@
 module ApplicationHelper
-  #def active_class(link_path)
-   # current_page?(link_path) ? 'active' : ""
-  #end
 
   def active_class(controller_name, action_name)    
     "active" if current_page?(controller: controller_name, action: action_name)
