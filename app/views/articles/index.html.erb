@@ -2,7 +2,7 @@
 <hr>
 
 <% if current_user && current_user.admin? %>
-	<h2><small><%= link_to 'New Thread', new_article_path, class: 'pull-right' %></small></h2>
+	<h2><small><%= link_to 'New Article', new_article_path, class: 'pull-right' %></small></h2>
 <% end %>
 
 <% if @articles.exists? %>

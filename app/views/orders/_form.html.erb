@@ -3,7 +3,7 @@
 <%= form_for(order) do |f| %>
 
   <center class="mx-auto">
-    <div class="card" style="display: block;">
+    <div class="card">
       <h4 class="card-header">Enter Your Payment Information</h4>
       <div class="card-block">
         <center>
@@ -37,17 +37,14 @@
 
           <div class="field form-group">
             <%= f.label :expiry_date %>
-            <%= f.date_select :expiry_month, :use_month_numbers => true, :discard_day => true, :discard_year => true %>
+            <%= f.date_select :expiry_month, :discard_day => true, :discard_year => true %>
             <%= f.date_select :expiry_year, :start_year => Date.today.year, :end_year => (Date.today.year+10), :discard_day => true, :discard_month => true, prompt: true %>
               (month, year)
           </div>
 
-          <div class="field">
             <%#= f.label :expiry_date %>
             <%#= f.date_select :expiry_date, :discard_day => true, :use_month_numbers => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :order => [:month, :year] %>
-            
-          </div>
-
+                    
           <div class="actions">
             <%= f.submit 'Place Order', class: "btn btn-primary btn-lg" %>
           </div>

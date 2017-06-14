@@ -16,11 +16,12 @@
 //= require bootstrap
 //= require lightbox-bootstrap
 //= require custom
-//= require turbolinks
 //= require_tree .
 
+/**/
 $(document).ready(function(){
-
+  document.getElementById('ask').addEventListener('click', function() { alert('bla'); });
+  //('#ask').click(function(e) { e.preventDefault(); alert("hallo"); });
   $('#ask').on('click', function(event) {
     $.ajax({
       url: '/ask_bot',
@@ -35,6 +36,6 @@ $(document).ready(function(){
     });
   });
 
-  $('[data-toggle="tooltip"]').tooltip();
+  #$('[data-toggle="tooltip"]').tooltip();
 });
 

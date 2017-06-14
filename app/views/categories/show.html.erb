@@ -5,7 +5,7 @@
 <% end %>
 
 <% if @products.exists? %>
-	<% if current_user %>
+	<% if current_user && !current_user.admin? %>
 		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
 		  Automate your conditions
 		</button>

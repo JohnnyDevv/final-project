@@ -13,6 +13,8 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
   test "should get new" do
     get new_line_item_url
     assert_response :success
+
+    then: :create
   end
 
   test "should create line_item" do
@@ -20,7 +22,11 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
       post line_items_url, params: { line_item: { cart_id: @line_item.cart_id, product_id: @line_item.product_id } }
     end
 
-    assert_redirected_to line_item_url(LineItem.last)
+    follow_redirect!
+
+    assert_select 'h2', @category.name
+    assert_select 'li', @category.products
+    #assert_redirected_to line_item_url(LineItem.last)
   end
 
   test "should show line_item" do

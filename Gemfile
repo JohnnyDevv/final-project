@@ -34,7 +34,8 @@ gem 'certified'
 gem 'mailgunner'
 gem 'activemerchant'
 gem 'programr'
-gem 'minitest'
+#gem 'minitest'
+gem 'tether-rails'
 
 # Use jquery as the JavaScript library
 

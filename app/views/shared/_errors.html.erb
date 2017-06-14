@@ -3,7 +3,7 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
-    <h3><%= pluralize(obj.errors.count, "error") %> prohibited this <%= controller_name %> from being saved:</h3>
+    <h3><%= pluralize(obj.errors.count, "error") %> prohibited this <%= controller_name.classify.constantize %> from being saved:</h3>
     <ul>
       <% obj.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
