@@ -13,6 +13,8 @@ class ApplicationController < ActionController::Base
   	@categoryNav = Category.all
   end
 
+  
+
   def getProducts
     @all_products = Product.order(created_at: :asc).last(4)
   end  
