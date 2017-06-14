@@ -36,7 +36,7 @@
 				  <li class="<%= active_class('back_office', 'index') %>"><%= link_to 'Back Office', '/back_office', class: "nav-item nav-link" %></li>
 				  <% end %>
 
-				  <form class="form-inline my-2 my-lg-0 movLeft1" style="color: #fff; position: absolute; left: 700px">
+				  <form class="form-inline my-2 my-lg-0" style="color: #fff; position: absolute; left: 700px">
 			      <input class="form-control mr-sm-2" type="text" aria-describedby="basic-addon1" placeholder="Search">
 			      <%= link_to 'Search', '#', class: 'btn btn-outline-success my-2 my-sm-0' %>
 			     <!--<span class="input-group-addon" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>-->
@@ -44,7 +44,7 @@
 				  <div class="nav-item nav-link" style="color: #fff; position: absolute; left: 1000px">
 					  <% if current_user %>
 					  	<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle active_class(#)" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									<i class="fa fa-user"></i>
 					  			<%= current_user.full_name.present? ? current_user.full_name : current_user.email %>
 								</a>
@@ -58,7 +58,7 @@
 						  </li>
 					  <% else %>
 					  	<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle active_class(#)" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									<i class="fa fa-user"></i>
 								</a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">

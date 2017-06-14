@@ -15,8 +15,12 @@
 @import "bootstrap";
 @import "lightbox-bootstrap";
 @import "font-awesome";
-@import "jquery-ui";
 
+@media (max-width: 576px) {
+    nav .container {
+        width: 100%;
+    }
+}
 .but{border-radius: 0}
 a:hover{text-decoration: none}
 .thick{border-bottom: 5px solid gray}

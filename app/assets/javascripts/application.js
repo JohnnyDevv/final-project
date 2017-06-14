@@ -20,7 +20,7 @@
 
 /**/
 $(document).ready(function(){
-  document.getElementById('ask').addEventListener('click', function() { alert('bla'); });
+  //document.getElementById('ask').addEventListener('click', function() { alert('bla'); });
   //('#ask').click(function(e) { e.preventDefault(); alert("hallo"); });
   $('#ask').on('click', function(event) {
     $.ajax({

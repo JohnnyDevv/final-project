@@ -21,10 +21,8 @@
 		      </div>
 		      <div class="modal-body">
 		      	<ul>
-		      		<li><%= link_to 'Popularity', '#' %></li>
-		      		<li><%= link_to 'Inventory turns', '#' %></li>
-		      		<li><%= link_to 'Seasonality', '#' %></li>
-		      		<li><%= link_to 'Profitability', '#' %></li>
+		      		<li><%= link_to 'm', optimize_url %></li>
+		      		
 		      	</ul>		     
 		      </div>
 		      <div class="modal-footer">
@@ -69,5 +67,5 @@
 </div>
 
 <% if current_user && current_user.admin? %>
-	<%= link_to "Add product", new_product_path, class: "btn btn-primary but" %>
+	<%= link_to "Add product", new_product_path, class: "btn btn-primary but pull-right" %>
 <% end %>	
