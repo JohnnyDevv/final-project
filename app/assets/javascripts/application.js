@@ -18,10 +18,8 @@
 //= require custom
 //= require_tree .
 
-/**/
-$(document).ready(function(){
-  //document.getElementById('ask').addEventListener('click', function() { alert('bla'); });
-  //('#ask').click(function(e) { e.preventDefault(); alert("hallo"); });
+
+/*$(document).ready(function(){
   $('#ask').on('click', function(event) {
     $.ajax({
       url: '/ask_bot',
@@ -37,5 +35,23 @@ $(document).ready(function(){
   });
 
   #$('[data-toggle="tooltip"]').tooltip();
+});*/
+document.addEventListener('DOMContentLoaded', function () {
+  //$('#callout-alerts-no-default').hide();
+  $('#ask').on('click', function(event) {
+    $.ajax({
+      url: '/ask_bot',
+      type: 'json',
+      method: 'get',
+      data: { query: $('#query').val() },
+      success: function(data) {
+        $('.bot-response').removeClass('hide');
+        $('#bot-response').html(data['response']);
+        $('#query').val('');
+      }
+    });
+  });
+
+  $('[data-toggle="tooltip"]').tooltip();
 });
 

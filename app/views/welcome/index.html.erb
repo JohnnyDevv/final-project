@@ -15,34 +15,90 @@
 <p class="myfont"><%= link_to 'New Products', '#' %></p>
 <hr>
 <div class="text-center">
-<% if @all_products.present? %>
-	<% @all_products.each do |p| %>
-		<a href="<%= p.picture() %>" data-toggle="lightbox" data-gallery="example-gallery" data-title="<%= p.title %>">
-			<%= image_tag(p.picture.url, size: '200x200', class: 'rounded') %>
+<%# if @all_products.present? %>
+	<%# @all_products.each do |p| %>
+		<!--<a href="<%#= p.picture() %>" data-toggle="lightbox" data-gallery="example-gallery" data-title="<%#= p.title %>">
+			<%#= image_tag(p.picture.url, size: '200x200', class: 'rounded') %>
+		</a>&nbsp;&nbsp;-->	
+
+		<a href="custom.jpg" data-toggle="lightbox" data-gallery="example-gallery" data-title="Custom">
+			<%= image_tag('custom.jpg', size: '200x200', class: 'rounded') %>
 		</a>&nbsp;&nbsp;	
-	<% end %>
-<% end %>
+
+		<a href="context.jpg" data-toggle="lightbox" data-gallery="example-gallery" data-title="Context">
+			<%= image_tag('context.jpg', size: '200x200', class: 'rounded') %>
+		</a>&nbsp;&nbsp;	
+
+		<a href="black.jpg" data-toggle="lightbox" data-gallery="example-gallery" data-title="Black">
+			<%= image_tag('black.jpg', size: '200x200', class: 'rounded') %>
+		</a>&nbsp;&nbsp;	
+
+		<a href="bag1.jpg" data-toggle="lightbox" data-gallery="example-gallery" data-title="Bad">
+			<%= image_tag('bag1.jpg', size: '200x200', class: 'rounded') %>
+		</a>&nbsp;&nbsp;	
+	<%# end %>
+<%# end %>
 </div>
 
 <br><br><p class="myfont"><%= link_to "What's New?", articles_path %></p>
 <hr>
-<div class="text-center">
-<% if @all_articles.present? %>
-	<% @all_articles.each do |a| %>
+<!--<div class="text-center">
+<%# if @all_articles.present? %>
+	<%# @all_articles.each do |a| %>
 		<div class="card-group d-inline-block">
 		  <div class="card" style="width: 200px">
-		    <%= image_tag(a.picture.url, size: '200x200', class: "card-img-top", alt: "Card image cap")  %>
+		    <%#= image_tag(a.picture.url, size: '200x200', class: "card-img-top", alt: "Card image cap")  %>
 		    <div class="card-block">
-		      <h4 class="card-title"><%= a.title %></h4>
-		      <p class="card-text"><%= a.body.truncate_words(7, omission: '... (continued)') %></p>
+		      <h4 class="card-title"><%#= a.title %></h4>
+		      <p class="card-text"><%#= a.body.truncate_words(7, omission: '... (continued)') %></p>
 		    </div>
 		    <div class="card-footer">
-		      <small class="text-muted">Created <%= time_ago_in_words(a.created_at) %> ago</small>
+		      <small class="text-muted">Created <%#= time_ago_in_words(a.created_at) %> ago</small>
 		    </div>
 		  </div>
 		</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<% end %>
-<% end %>	
+	<%# end %>
+<%# end %>	
+</div>-->
+<div class="text-center">
+<div class="card-group d-inline-block">
+  <div class="card" style="width: 200px">
+    <%= image_tag('bags.jpg', size: '200x200', class: "card-img-top", alt: "Card image cap")  %>
+    <div class="card-block">
+      <h4 class="card-title">Ultimate designer</h4>
+      <p class="card-text">In publishing and graphic design, lorem ipsum... (continued)</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Created 29 days ago</small>
+    </div>
+  </div>
+</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<div class="card-group d-inline-block">
+  <div class="card" style="width: 200px">
+    <%= image_tag('couple.jpg', size: '200x200', class: "card-img-top", alt: "Card image cap")  %>
+    <div class="card-block">
+      <h4 class="card-title">Couples Retreat</h4>
+      <p class="card-text">In publishing and graphic design, lorem ipsum... (continued)</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Created 29 days ago</small>
+    </div>
+  </div>
+</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<div class="card-group d-inline-block">
+  <div class="card" style="width: 200px">
+    <%= image_tag('winner.jpg', size: '200x200', class: "card-img-top", alt: "Card image cap")  %>
+    <div class="card-block">
+      <h4 class="card-title">Win Big!</h4>
+      <p class="card-text">In publishing and graphic design, lorem ipsum... (continued)</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Created 29 days ago</small>
+    </div>
+  </div>
+</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </div>
 
 <% if current_user && current_user.admin? %>
