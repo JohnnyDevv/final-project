@@ -9,7 +9,7 @@ class Order < ApplicationRecord
 
 	has_many :line_items, dependent: :destroy
 	
-	validates :fname, :lname, :email, :address, :card_no, :card_cvv,:expiry_year, :expiry_month, presence: true
+	validates :fname, :lname, :email, :address, presence: true
 	validates :pay_type, inclusion: pay_types.keys
 	
 	

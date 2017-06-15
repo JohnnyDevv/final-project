@@ -13,7 +13,9 @@ class ApplicationController < ActionController::Base
   	@categoryNav = Category.all
   end
 
-  
+  #def getCategory
+    #@categoryac = Category.find(params[:id])
+  #end
 
   def getProducts
     @all_products = Product.order(created_at: :asc).last(4)
