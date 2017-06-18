@@ -12,7 +12,7 @@
 	</div>
 </center>
 
-<p class="myfont"><%= link_to 'New Products', category_path(Category.first) %></p>
+<p class="myfont"><%= link_to 'New Products', category_path(Category.find(3)) %></p>
 <hr>
 <div class="text-center">
 <% if @all_products.present? %>
