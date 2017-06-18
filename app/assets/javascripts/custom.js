@@ -5,10 +5,10 @@ $(function () {
   var myChart = new Chart(ctx, {
       type: 'bar',
       data: {
-          labels: ['Mon','Tue','Wed','Thur','Fri','Sat','Sun'],
+          labels: ['Mon','Tue','Wed','Thur','Fri'],
           datasets: [{
               label: 'Number of orders per day for 7 days',
-              data: [12, 13, 3, 5, 2, 18, 15],
+              data: [2, 4, 3, 5, 2],
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',
                   'rgba(54, 162, 235, 0.2)',
@@ -49,7 +49,7 @@ $(function () {
           labels: ["Landing page", "View product", "Add to cart", "Checkout", "Help"],
           datasets: [{
               label: 'Daily struggle score per page',
-              data: [60, 95, 15, 25, 10],
+              data: [60, 60, 15, 13, 5],
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',
                   'rgba(54, 162, 235, 0.2)',
@@ -89,12 +89,12 @@ $(function () {
     data: {
       labels: ['Mon','Tue','Wed','Thur','Fri','Sat','Sun'],
       datasets: [{ 
-          data: [8.6,11.4,10.6,10.6,10.7,11.1,13.3],
+          data: [4.6,5.5,10.6,10.6,10.7],
           label: "Previous Week",
           borderColor: "#3e95cd",
           fill: false
         }, { 
-          data: [28.2,35,41.1,50.2,63.5,80.9,94.7],
+          data: [16.6,35,41.1,57.8,45.5],
           label: "Current Week",
           borderColor: "#8e5ea2",
           fill: false

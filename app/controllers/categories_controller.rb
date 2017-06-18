@@ -36,7 +36,7 @@ class CategoriesController < ApplicationController
 	def show
 		@category = Category.find(params[:id])
 		@products = @category.products.order('created_at DESC')
-		#@product = @category.product
+		#@products.update_attributes(params[:product])
 	end	
 
 	def destroy

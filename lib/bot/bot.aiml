@@ -10,6 +10,13 @@
     </category>
 
     <category>
+      <pattern>Hi *</pattern>
+      <template>
+        Hello, is there a problem??
+      </template>
+    </category>
+
+    <category>
       <pattern>*bye</pattern>
       <template>
         Always here for you!

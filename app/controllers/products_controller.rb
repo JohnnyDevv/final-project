@@ -22,6 +22,7 @@ class ProductsController < ApplicationController
   def create
   	@product = Product.new(product_params)
   	@category = @product.category
+    #@product.update_attributes(params[:product][:picture_cache])
   	if @product.save
       flash[:notice] = "#{@product.title} created"
       redirect_to category_path(@category)

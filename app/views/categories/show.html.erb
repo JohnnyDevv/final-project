@@ -21,8 +21,10 @@
 		      </div>
 		      <div class="modal-body">
 		      	<ul>
-		      		<li><%= link_to 'm', optimize_url %></li>
-		      		
+		      		<li><%= link_to 'Popularity', '#' %></li>
+		      		<li><%= link_to 'Inventory turns', '#' %></li>
+		      		<li><%= link_to 'Seasonality', '#' %></li>
+		      		<li><%= link_to 'Profitability', '#' %></li>
 		      	</ul>		     
 		      </div>
 		      <div class="modal-footer">
@@ -41,13 +43,13 @@
 						<%= image_tag(p.picture.url, size: '200x200') %>
 					</a>
 					<div class="desc">
-						<span class="price"><%= number_to_currency(p.price) %></span>
+						<span class="price">N<%= (p.price) %></span>
 						<% if current_user %>
 							<%= link_to line_items_path(product_id: p), method: :post, remote: true, class: "pull-right" do %> 	
 									<i class="fa fa-shopping-cart" aria-hidden="true" ></i>
 							<% end %>
 						<% else %>
-							<a href="" title="Sign in first!" data-toggle="tooltip" data-placement="top"><i class="disabled fa fa-shopping-cart" aria-hidden="true" ></i></a>
+							<a href="#" title="Sign in first!" data-toggle="tooltip" data-placement="top"><i class="disabled fa fa-shopping-cart" aria-hidden="true" ></i></a>
 						<% end %>		
 					</div>
 				</div>
