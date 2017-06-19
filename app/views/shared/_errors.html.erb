@@ -6,8 +6,12 @@
     <h3><%= pluralize(obj.errors.count, "error") %> prohibited this <%= controller_name.classify.constantize %> from being saved:</h3>
     <ul>
       <% obj.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <!--<li><%#= msg %></li>-->
+        <h3>Revoked!</h3>
+        <li>Gateway Rejected: <strong>fraud</strong></li>
       <% end %>
     </ul>
   </div>
 <% end %>  
+
+
